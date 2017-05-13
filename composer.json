@@ -1,0 +1,12 @@
+{
+    "name": "ayimdomnic/laravel-office-365",
+    "description": "How I get through my laravel Office 365 intergration",
+    "type": "library",
+    "authors": [
+        {
+            "name": "ayimdomnic",
+            "email": "ayimdomnic@outlook.com"
+        }
+    ],
+    "require": {}
+}
