@@ -15,8 +15,18 @@ class Office365ServiceProvider extends ServiceProvider
 
 	public function boot()
 	{
+		// use this if your package has views
+        //$this->loadViewsFrom(realpath(__DIR__.'/resources/views'), 'skeleton');
+        
+        // use this if your package has lang files
+        //$this->loadTranslationsFrom(__DIR__.'/resources/lang', 'skeleton');
+        
+        // use this if your package has routes
+        //$this->setupRoutes($this->app->router);
 		// *Todo::make a config that's published on register
-		$this->publishes([]);
+		$this->publishes([
+			__DIR__.'/config/config.php' => config_path('office365.php'),
+		]);
 	}
 
 	public function register()
