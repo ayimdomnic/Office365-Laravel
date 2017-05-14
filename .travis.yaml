@@ -1,0 +1,21 @@
+language: php
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+before_install:
+  - composer self-update
+  - composer create-project laravel/laravel
+  - cd ./laravel
+  - composer config repositories.ayimdomnic vcs https://github.com/ayimdomnic/Office365-Laravel.git
+  - composer require ayimdomnic/Office365-Laravel dev-master
+  - composer update
+  - cp ./vendor/ayimdomnic/Office365-Laravel/tests/config/.env ./
+  - rm ./config/app.php
+  - cp ./vendor/ayimdomnic/Office365-Laravel/tests/config/app.php ./config
+  - php artisan vendor:publish
+  - mysql -e "create database IF NOT EXISTS test;" -uroot
+  - php artisan migrate
+  - cd ./vendor/ayimdomnic/Office365-Laravel
+  
+script: "phpunit"
